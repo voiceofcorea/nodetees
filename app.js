@@ -1,8 +1,12 @@
 var express = require('express');
 var app = express();
+var path = require('path');
 
+app.set("view engine",'ejs');
+app.use(express.static(path.join(__dirname+'/public')));
 app.get('/', function (req, res) {
-   res.send('Hello World');
+//   res.send('Hello World');
+   res.render('my_first_ejs');
 });
 
 var server = app.listen(8081, function () {
